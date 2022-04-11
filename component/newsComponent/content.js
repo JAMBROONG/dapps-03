@@ -44,11 +44,9 @@ export default function Content(props) {
 												</div>
 											</div>
 											<div className="col-md-5 cmc-cover">
-												<Link href={'/news/read?s=' + item.slug}>
-													<a>
-														<img className='img-fluid' alt={item.slug} src={item.cover ? item.cover : 'img/ph' + (Math.floor(Math.random() * 10) + 1) + '.jpg'} />
-													</a>
-												</Link>
+												<a href={'/news/read?s=' + item.slug}>
+													<img className='img-fluid' alt={item.slug} src={item.cover ? item.cover : 'img/ph' + (Math.floor(Math.random() * 10) + 1) + '.jpg'} />
+												</a>
 											</div>
 										</div>
 									)
