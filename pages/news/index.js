@@ -115,9 +115,9 @@ export default function News({ coinsData, marketCapData }) {
 			</Dropdown>
 
 			<Content value={filter ? filter : false} reset={resetPage} />
-			<Script src='../js/jquery.js' />
-			<Script src='../js/popper.min.js' />
-			<Script src='../js/bootstrap.js' />
+			<Script src='js/jquery.js' />
+			<Script src='js/popper.min.js' />
+			<Script src='js/bootstrap.js' />
 		</>
 	)
 }
