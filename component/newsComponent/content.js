@@ -34,7 +34,7 @@ export default function Content(props) {
 										<div className="row cmc-news-one" ref={lastNewsElement} key={index}>
 											<div className="col-md-7">
 												<div className="cmc-news-title">
-													<Link href={'/news/read?s=' + item.slug}>{item.meta.title}</Link>
+													<a href={'/news/read?s=' + item.slug}>{item.meta.title}</a>
 												</div>
 												<div className="cmc-news-desc mt-2">
 													{item.meta.subtitle}
@@ -55,7 +55,7 @@ export default function Content(props) {
 										<div className="row cmc-news-one" key={index}>
 											<div className="col-md-7">
 												<div className="cmc-news-title">
-													<Link href={'/news/read?s=' + item.slug}>{item.meta.title}</Link>
+													<a href={'/news/read?s=' + item.slug}>{item.meta.title}</a>
 												</div>
 												<div className="cmc-news-desc mt-2">
 													{item.meta.subtitle}
@@ -65,11 +65,9 @@ export default function Content(props) {
 												</div>
 											</div>
 											<div className="col-md-5 cmc-cover">
-												<Link href={'/news/read?s=' + item.slug}>
-													<a>
+												<a href={'/news/read?s=' + item.slug}>
 														<img className='img-fluid' alt={item.slug} src={item.cover ? item.cover : 'img/ph' + (Math.floor(Math.random() * 10) + 1) + '.jpg'} />
-													</a>
-												</Link>
+												</a>
 											</div>
 										</div>
 									)
