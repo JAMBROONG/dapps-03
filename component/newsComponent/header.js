@@ -18,7 +18,6 @@ export default function Header(props) {
 			btcDominance: result ? result.data.btc_dominance : 0,
 			ethDominance: result ? result.data.eth_dominance : 0,
 		})
-		console.log(result)
 		const getCoins = await fetch('https://api.coinmarketcap.com/data-api/v3/cryptocurrency/listing?start=1&limit=10&sortBy=market_cap&sortType=desc&convert=USD&cryptoType=all&tagType=all&audited=false');
 		const coins = await getCoins.json();
 		setListCoin(coins.data.cryptoCurrencyList);
