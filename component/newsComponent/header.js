@@ -158,9 +158,7 @@ export default function Header(props) {
 					}
 				</Marquee>
 			</section>
-			<Script src='../js/jquery.js' />
-			<Script src='../js/popper.min.js' />
-			<Script src='../js/bootstrap.js' />
+			
 		</>
 	)
 }
