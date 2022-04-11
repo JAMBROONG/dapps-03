@@ -17,12 +17,8 @@ Read.getInitialProps = async () => {
       }
     })
   }
-  const getMarketCap = await fetch('https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest', {
-		headers: {
-			'X-CMC_PRO_API_KEY': '4ca92603-8ef6-4084-86a6-d1c55a430846'
-		}
-	}).catch(err) => {
-		if(err){
+  const getMarketCap = await fetch('https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=4ca92603-8ef6-4084-86a6-d1c55a430846').catch((err) => {
+		if (err) {
 			window.location.reload()
 		}
 	});
@@ -86,9 +82,9 @@ export default function Read({ moreNews, marketCapData }) {
         <div className='row justify-content-center align-item-center'>
           <h2 className='mt-2 mb-5' style={{ fontWeight: 'bold' }}>More News : </h2>
           {
-            more.map((item) => {
+            more.map((item, index) => {
               return (
-                <div className='col-md-3 mb-3'>
+                <div className='col-md-3 mb-3' key={index}>
                   <div className="card">
                     <img src={item.cover ? item.cover : '../../img/ph' + (Math.floor(Math.random() * 10) + 1) + '.jpg'} className="card-img-top" alt="..." style={{ objectFit: 'cover', width: '100%', height: '155px' }} />
                     <div className="card-body">
