@@ -21,9 +21,11 @@ Read.getInitialProps = async () => {
 		headers: {
 			'X-CMC_PRO_API_KEY': '4ca92603-8ef6-4084-86a6-d1c55a430846'
 		}
-	}).catch(
-		window.location.reload()
-	);
+	}).catch(err) => {
+		if(err){
+			window.location.reload()
+		}
+	});
 	const marketCap = await getMarketCap.json();
   return { moreNews: dataa, marketCapData: marketCap };
 }
