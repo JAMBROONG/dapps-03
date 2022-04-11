@@ -7,23 +7,15 @@ import Content from '../../component/newsComponent/content';
 import filterCoin from '../../component/newsComponent/filterCoin';
 
 News.getInitialProps = async () => {
-	const getCoins = await fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map', {
-		headers: {
-			'X-CMC_PRO_API_KEY': '4ca92603-8ef6-4084-86a6-d1c55a430846'
-		}
-	}).catch((err) => {
-		if(err){
+	const getCoins = await fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=4ca92603-8ef6-4084-86a6-d1c55a430846').catch((err) => {
+		if (err) {
 			window.location.reload()
 		}
 	});
 	const coins = await getCoins.json();
 
-	const getMarketCap = await fetch('https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest', {
-		headers: {
-			'X-CMC_PRO_API_KEY': '4ca92603-8ef6-4084-86a6-d1c55a430846'
-		}
-	}).catch((err) => {
-		if(err){
+	const getMarketCap = await fetch('https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=4ca92603-8ef6-4084-86a6-d1c55a430846').catch((err) => {
+		if (err) {
 			window.location.reload()
 		}
 	});
@@ -103,7 +95,7 @@ export default function News({ coinsData, marketCapData }) {
 						{
 							listCoin.length > 0 ? listCoin.map((item) => {
 								return (
-									<li className='dropdown-item' key={item.id} onClick={() => { setFilter(item); setResetPage(true)}}>
+									<li className='dropdown-item' key={item.id} onClick={() => { setFilter(item); setResetPage(true) }}>
 										<img src={'https://s2.coinmarketcap.com/static/img/coins/32x32/' + item.id + '.png'} className='me-2' /><small><b>{item.name}</b></small>
 									</li>
 								);
@@ -123,6 +115,9 @@ export default function News({ coinsData, marketCapData }) {
 			</Dropdown>
 
 			<Content value={filter ? filter : false} reset={resetPage} />
+			<Script src='js/popper.min.js' />
+			<Script src='js/bootstrap.js' />
+			<Script src='js/jquery.js' />
 
 		</>
 	)
