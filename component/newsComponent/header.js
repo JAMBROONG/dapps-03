@@ -11,12 +11,12 @@ export default function Header(props) {
 
 	useEffect(async () => {
 		setData({
-			cryptos: result.data.total_cryptocurrencies,
-			exchanges: result.data.active_exchanges,
-			marketCap: result.data.quote.USD.total_market_cap,
-			total24hVol: result.data.quote.USD.total_volume_24h,
-			btcDominance: result.data.btc_dominance,
-			ethDominance: result.data.eth_dominance,
+			cryptos: result ? result.data.total_cryptocurrencies : 0,
+			exchanges: result ? result.data.active_exchanges : 0,
+			marketCap: result ? result.data.quote.USD.total_market_cap : 0,
+			total24hVol: result ? result.data.quote.USD.total_volume_24h : 0,
+			btcDominance: result ? result.data.btc_dominance : 0,
+			ethDominance: result ? result.data.eth_dominance : 0,
 		})
 		console.log(result)
 		const getCoins = await fetch('https://api.coinmarketcap.com/data-api/v3/cryptocurrency/listing?start=1&limit=10&sortBy=market_cap&sortType=desc&convert=USD&cryptoType=all&tagType=all&audited=false');
